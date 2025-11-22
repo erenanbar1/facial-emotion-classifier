@@ -107,3 +107,42 @@ def build_splits(val_ratio=0.25, seed=42):
     }
 
 
+def build_original_splits():
+    """
+    Load ONLY the original FER2013 train and test splits.
+    Returns:
+    {
+        "train": {...},
+        "train_numeric": {...},
+        "test": {...},
+        "test_numeric": {...}
+    }
+    """
+
+    # Load environment variables
+    BASE_DIR = Path(__file__).resolve().parents[2]  # src/scripts → repo root
+    ENV_PATH = BASE_DIR / ".env"
+    load_dotenv(ENV_PATH)
+
+    DS_PATH = os.getenv("FER2013_PATH")
+    if DS_PATH is None:
+        raise ValueError("FER2013_PATH not found in .env")
+
+    # Root folders
+    train_root = os.path.join(DS_PATH, "train")
+    test_root = os.path.join(DS_PATH, "test")
+
+    # Build dicts
+    train_dict = build_dict(train_root)
+    test_dict = build_dict(test_root)
+
+    # Numeric versions
+    numeric_train_dict = build_numeric_dict(train_dict)
+    numeric_test_dict = build_numeric_dict(test_dict)
+
+    return {
+        "train": train_dict,
+        "train_numeric": numeric_train_dict,
+        "test": test_dict,
+        "test_numeric": numeric_test_dict
+    }

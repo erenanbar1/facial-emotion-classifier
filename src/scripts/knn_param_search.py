@@ -37,6 +37,7 @@ def knn_pca_grid_search(
     pca_dims: Iterable[int] = (50, 100, 150),
     k_values: Iterable[int] = range(1, 31),
     weights: str = "distance",
+    metric: str = "accuracy"
 ) -> Dict[str, object]:
     """
     Explore KNN performance over a grid of:
@@ -82,6 +83,7 @@ def knn_pca_grid_search(
             y_val,
             k_values=k_values,
             weights=weights,
+            metric=metric
         )
 
         # 3) Store per-K results into the grid
