@@ -98,11 +98,8 @@ def build_splits(val_ratio=0.25, seed=42):
     numeric_test_dict = build_numeric_dict(test_dict)
 
     return {
-        "train": train_dict,
         "train_numeric": numeric_train_dict,
-        "val": val_dict,
         "val_numeric": numeric_val_dict,
-        "test": test_dict,
         "test_numeric": numeric_test_dict
     }
 
@@ -141,8 +138,6 @@ def build_original_splits():
     numeric_test_dict = build_numeric_dict(test_dict)
 
     return {
-        "train": train_dict,
         "train_numeric": numeric_train_dict,
-        "test": test_dict,
         "test_numeric": numeric_test_dict
     }
