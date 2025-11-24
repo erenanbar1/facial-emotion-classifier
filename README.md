@@ -5,7 +5,7 @@ python -m venv .venv
 ./.venv/scripts/Activate
 
 ### install requirements
-pip install requirements.txt
+pip install -r requirements.txt
 
 ### download dataset, save to env variable. .env will be created automatically
 python src/download_dataset.py
