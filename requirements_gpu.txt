@@ -1,0 +1,18 @@
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn
+Pillow
+python-dotenv
+tqdm
+
+# PyTorch CPU versions are here ONLY as placeholders.
+# REMOVE these when installing GPU wheels!
+torch
+torchvision
+torchaudio
+
+jupyter
+notebook
+ipykernel
